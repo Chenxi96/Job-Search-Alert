@@ -36,7 +36,7 @@ router.get('/', async function(req, res, next) {
     "job_id_or": [],
     "job_id_not": [],
     "job_ids": [],
-    "job_seniority_or": ["junior"],
+    "job_seniority_or": ["junior", "mid-level"],
     "job_technology_slug_or": [],
     "job_technology_slug_not": [],
     "job_technology_slug_and": [],
@@ -96,8 +96,8 @@ router.get('/', async function(req, res, next) {
     },
     body
   })
-
-  const data = await response.json().data;
+  
+  const data = (await response.json()).data;
   if(data && data.length > 0) {
     let textBody = `Hi Chenxi, <br>
     Here are the Job that we found for today: <br>`;
