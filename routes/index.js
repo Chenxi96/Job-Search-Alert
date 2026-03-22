@@ -1,5 +1,6 @@
 import express from 'express';
 import 'dotenv/config';
+import transporter from '../utils/nodeMailer.js';
 const router = express.Router();
 
 /* GET home page. */
@@ -97,7 +98,6 @@ router.get('/', async function(req, res, next) {
   })
 
   const data = await response.json().data;
-  console.log(data)
   if(data && data.length > 0) {
     let textBody = `Hi Chenxi, <br>
     Here are the Job that we found for today: <br>`;
@@ -109,6 +109,10 @@ router.get('/', async function(req, res, next) {
                         Job title: ${job.job_title}
                         <br>
                         URL: ${job.url}
+                        <br>
+                        Source Link: ${job.source_url}
+                        <br>
+                        Site Link: ${job.final_url}
                         <br>
                         Job Description: ${job.description}
                         <br>
