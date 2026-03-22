@@ -59,7 +59,7 @@ router.get('/', async function(req, res, next) {
     "company_name_partial_match_or": [],
     "company_name_partial_match_not": [],
     "company_linkedin_url_or": [],
-    "blur_company_data": true,
+    "blur_company_data": false,
     "property_exists_or": [],
     "property_exists_and": [],
     "company_description_pattern_or": [],
@@ -107,6 +107,8 @@ router.get('/', async function(req, res, next) {
                         Company: ${job.company}
                         <br>
                         Job title: ${job.job_title}
+                        <br>
+                        Job Level: ${job.seniority}
                         <br>
                         URL: ${job.url}
                         <br>
